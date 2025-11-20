@@ -1,0 +1,263 @@
+:root {
+  --background: #ffffff;
+  --foreground: #09090b;
+  --card: #ffffff;
+  --card-foreground: #09090b;
+  --popover: #ffffff;
+  --popover-foreground: #09090b;
+  --primary: #f97316; /* Orange-500 */
+  --primary-foreground: #ffffff;
+  --secondary: #f4f4f5;
+  --secondary-foreground: #18181b;
+  --muted: #f4f4f5;
+  --muted-foreground: #71717a;
+  --accent: #f4f4f5;
+  --accent-foreground: #18181b;
+  --destructive: #ef4444;
+  --destructive-foreground: #fafafa;
+  --border: #e4e4e7;
+  --input: #e4e4e7;
+  --ring: #f97316;
+  --radius: 0.5rem;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background);
+  color: var(--foreground);
+  width: 400px; /* Reduced width */
+  height: 550px; /* Slightly taller to accommodate narrower width */
+  overflow: hidden;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+/* Tabs - Segmented Control Style */
+.tabs {
+  display: flex;
+  background-color: var(--muted);
+  padding: 4px;
+  border-radius: var(--radius);
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.tab-btn {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--muted-foreground);
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: calc(var(--radius) - 2px);
+  transition: all 0.2s ease;
+  z-index: 1;
+}
+
+.tab-btn.active {
+  background-color: var(--background);
+  color: var(--primary); /* Orange text for active tab */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-weight: 600;
+}
+
+/* Content Area */
+.content-area {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 16px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--muted) var(--background);
+  padding-right: 4px; /* Avoid scrollbar overlap */
+}
+
+.content-area::-webkit-scrollbar {
+  width: 6px;
+}
+.content-area::-webkit-scrollbar-track {
+  background: transparent;
+}
+.content-area::-webkit-scrollbar-thumb {
+  background-color: var(--muted-foreground);
+  border-radius: 10px;
+  border: 2px solid var(--background); /* Padding effect */
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.asset-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+/* Asset Card */
+.asset-card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px; /* More rounded */
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 1; /* Square cards like reference */
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.asset-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-color: var(--primary);
+}
+
+.asset-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.asset-overlay {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  opacity: 1; /* Always visible like reference, or hover? Reference implies always visible or on hover. Let's keep hover for cleaner look, or make it subtle. */
+  transition: opacity 0.2s ease;
+}
+
+/* Make download button always visible but subtle, or prominent on hover */
+.asset-card .asset-overlay {
+  opacity: 0;
+}
+.asset-card:hover .asset-overlay {
+  opacity: 1;
+}
+
+.download-icon-btn {
+  background-color: var(--primary);
+  border: none;
+  color: var(--primary-foreground);
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.download-icon-btn:hover {
+  background-color: #ea580c;
+  transform: scale(1.05);
+}
+
+.download-icon-btn svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  fill: none;
+}
+
+/* Footer */
+.footer {
+  margin-top: auto;
+}
+
+#download-all-btn {
+  width: 100%;
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  border: none;
+  padding: 12px;
+  border-radius: 8px; /* Matches card radius roughly */
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, opacity 0.2s;
+  box-shadow: 0 2px 4px rgba(249, 115, 22, 0.2);
+}
+
+#download-all-btn:hover {
+  background-color: #ea580c;
+}
+
+#download-all-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  color: var(--muted-foreground);
+  padding: 40px 0;
+  font-size: 14px;
+}
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.lightbox.visible {
+  opacity: 1;
+}
+
+.lightbox-content {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: var(--radius);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  background: rgba(0,0,0,0.5);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.lightbox-close:hover {
+  background: rgba(255,255,255,0.2);
+}

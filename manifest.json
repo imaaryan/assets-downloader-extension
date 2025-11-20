@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Asset Downloader",
+  "version": "1.0",
+  "description": "Download images and videos from the current page.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "downloads"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Download Assets",
+    "default_popup": "window.html"
+  },
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  }
+}

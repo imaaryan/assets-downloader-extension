@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asset Downloader</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="images">Images</button>
+      <button class="tab-btn" data-tab="videos">Video</button>
+    </div>
+
+    <div class="content-area">
+      <div id="images-view" class="tab-content active">
+        <div id="image-list" class="asset-grid"></div>
+      </div>
+      <div id="videos-view" class="tab-content">
+        <div id="video-list" class="asset-grid"></div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <button id="download-all-btn">Download All</button>
+    </div>
+  </div>
+
+  <div id="lightbox" class="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+    <video class="lightbox-content" id="lightbox-video" controls style="display:none;"></video>
+  </div>
+
+  <script src="libs/jszip.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
