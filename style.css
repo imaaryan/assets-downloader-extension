@@ -545,3 +545,22 @@ button {
   border-radius: var(--radius-lg);
   border: 1px dashed var(--gray-300);
 }
+
+/* Credits */
+.credits {
+  text-align: center;
+  font-size: 11px;
+  color: var(--gray-400);
+  margin-top: 16px;
+  padding-bottom: 4px;
+}
+
+.credits a {
+  color: var(--gray-500);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.credits a:hover {
+  color: var(--primary-600);
+}

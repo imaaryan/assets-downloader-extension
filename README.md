@@ -1,4 +1,4 @@
-# Asset Downloader & Converter
+# GrabAll - Bulk Image Downloader & Converter
 
 A powerful and lightweight Chrome Extension to extract, download, and convert images from any webpage. Now with advanced batch processing tools!
 
@@ -35,7 +35,7 @@ A powerful and lightweight Chrome Extension to extract, download, and convert im
 ## Usage
 
 1.  Navigate to any website.
-2.  Click the **Asset Downloader** icon.
+2.  Click the **GrabAll** icon.
 3.  **View & Select**: Click an image to view it in full size. Click the checkbox to select it for batch actions.
 4.  **Batch Options**: Click the **Settings Icon** (bottom left) to open the Batch Panel. Set a filename prefix or resize width.
 5.  **Action**: Click **Download Selected** or **Convert Selected**.

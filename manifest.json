@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "Asset Downloader",
-  "version": "1.0",
+  "name": "GrabAll - Bulk Image Downloader & Converter",
+  "version": "1.4.6",
   "description": "Download images and videos from the current page.",
   "permissions": [
     "activeTab",
