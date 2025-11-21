@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "GrabAll - Bulk Image Downloader & Converter",
   "version": "1.4.6",
-  "description": "Download images and videos from the current page.",
+  "description": "GrabAll - powerful and lightweight Chrome Extension to extract, download, and convert images from any webpage. Now with advanced batch processing tools!",
   "permissions": [
     "activeTab",
     "scripting",
